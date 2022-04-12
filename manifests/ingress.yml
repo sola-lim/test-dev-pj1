@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "myakscluster-ffdd"
+    labels:
+        app: "myakscluster-ffdd"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: myakscluster9f35-myakscluster-ffdd.a54e896319b544879329.japaneast.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "myakscluster-ffdd"
+                servicePort: 80

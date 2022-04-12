@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "myakscluster-ffdd"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "myakscluster-ffdd"
+  template:
+    metadata:
+      labels:
+        app: "myakscluster-ffdd"
+    spec:
+      containers:
+        - name: "myakscluster-ffdd"
+          image: "testsolaacr1.azurecr.io/myakscluster"
+          ports:
+          - containerPort: 80
